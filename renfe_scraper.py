@@ -6,7 +6,7 @@ Versión 11.0 - La Final. Esta versión contiene la lógica de análisis de
 la página de resultados completamente reescrita para coincidir con la
 estructura HTML real, garantizando una detección de disponibilidad precisa.
 
-Autor: Tu Nombre (Desarrollador Python Experto)
+Autor: Alberto Ines
 Fecha: [Fecha Actual]
 """
 
@@ -40,7 +40,7 @@ DESTINO = "Madrid"
 # Formato: "DD/MM/AAAA"
 FECHA_IDA = "17/08/2025"
 # Formato: "HH:MM"
-HORA_SALIDA_TREN = "07:27"
+HORA_SALIDA_TREN = "09:13"
 
 # -- Datos del Email de Notificación --
 EMAIL_REMITENTE = os.environ.get("EMAIL_REMITENTE")
@@ -275,3 +275,4 @@ def main():
 if __name__ == "__main__":
 
     main()
+
