@@ -35,12 +35,12 @@ from webdriver_manager.chrome import ChromeDriverManager
 # ==============================================================================
 
 # -- Datos del Viaje --
-ORIGEN = "Madrid"
-DESTINO = "Barcelona"
+ORIGEN = "Linares-Baeza"
+DESTINO = "Madrid"
 # Formato: "DD/MM/AAAA"
 FECHA_IDA = "17/08/2025"
 # Formato: "HH:MM"
-HORA_SALIDA_TREN = "07:27"
+HORA_SALIDA_TREN = "09:13"
 
 # -- Datos del Email de Notificación --
 EMAIL_REMITENTE = os.environ.get("EMAIL_REMITENTE")
@@ -270,4 +270,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
