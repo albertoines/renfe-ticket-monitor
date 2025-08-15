@@ -228,51 +228,45 @@ def comprobar_disponibilidad(driver):
 
 
 def main():
-    """Función principal que orquesta el bucle de monitorización."""
-    intentos = 0
-    while True:
-        intentos += 1
-        print("\n" + "="*50)
-        print(f"INICIANDO COMPROBACIÓN #{intentos} - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-        
-        driver = None
-        disponible = False
-        try:
-            driver = configurar_driver()
-            buscar_y_seleccionar_tren(driver)
-            disponible = comprobar_disponibilidad(driver)
+    """
+    Función principal que realiza UNA ÚNICA comprobación de disponibilidad.
+    Está diseñada para ser llamada por un orquestador externo como GitHub Actions.
+    """
+    print("\n" + "="*50)
+    print(f"INICIANDO COMPROBACIÓN - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print("="*50)
+    
+    driver = None
+    try:
+        driver = configurar_driver()
+        buscar_y_seleccionar_tren(driver)
+        disponible = comprobar_disponibilidad(driver)
 
-            if disponible is True:
-                enviar_correo()
-                print("\n¡ÉXITO! SCRIPT FINALIZADO.")
-                break
-            elif disponible == "no_trenes":
-                 print("No hay trenes programados. El script se detendrá.")
-                 break
-            else:
-                print(f"El tren no está disponible o no se encontró. Reintentando en {INTERVALO_SEGUNDOS / 60:.1f} minutos.")
+        if disponible is True:
+            enviar_correo()
+            print("\n¡ÉXITO! SCRIPT FINALIZADO.")
+        elif disponible == "no_trenes":
+            print("No hay trenes programados. Finalizando comprobación.")
+        else:
+            print("El tren no está disponible. Finalizando comprobación.")
 
-        except Exception as e:
-            print(f"\n--- ERROR INESPERADO EN LA EJECUCIÓN #{intentos} ---")
-            print(f"Error: {e.__class__.__name__} - {str(e).splitlines()[0]}")
-            if driver:
-                screenshot_path = f"error_renfe_{intentos}.png"
-                try:
-                    driver.save_screenshot(screenshot_path)
-                    print(f"Captura de pantalla guardada en: {screenshot_path}")
-                except Exception as e_ss:
-                    print(f"No se pudo guardar la captura de pantalla: {e_ss}")
-        
-        finally:
-            if driver:
-                driver.quit()
-            
-            if disponible is not True and disponible != "no_trenes":
-                 time.sleep(INTERVALO_SEGUNDOS)
-            else:
-                 break
+    except Exception as e:
+        print(f"\n--- ERROR INESPERADO DURANTE LA EJECUCIÓN ---")
+        print(f"Error: {e.__class__.__name__} - {str(e).splitlines()[0]}")
+        if driver:
+            screenshot_path = "error_renfe.png" # Nombre simple, ya que cada ejecución es independiente
+            try:
+                driver.save_screenshot(screenshot_path)
+                print(f"Captura de pantalla guardada en: {screenshot_path}")
+            except Exception as e_ss:
+                print(f"No se pudo guardar la captura de pantalla: {e_ss}")
+        # Es importante que el script termine con un código de error si falla
+        # para que GitHub Actions marque la ejecución como fallida.
+        raise e 
+    
+    finally:
+        if driver:
+            driver.quit()
 
 if __name__ == "__main__":
-
     main()
-
