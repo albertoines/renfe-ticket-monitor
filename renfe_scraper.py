@@ -43,6 +43,9 @@ FECHA_IDA = "17/08/2025"
 HORA_SALIDA_TREN = "07:27"
 
 # -- Datos del Email de Notificación --
+EMAIL_REMITENTE = os.environ.get("EMAIL_REMITENTE")
+EMAIL_CONTRASENA_APP = os.environ.get("EMAIL_CONTRASENA_APP")
+EMAIL_DESTINATARIO = os.environ.get("EMAIL_DESTINATARIO")
 EMAIL_SMTP_SERVER = "smtp.gmail.com"
 EMAIL_SMTP_PORT = 465
 
@@ -270,4 +273,5 @@ def main():
                  break
 
 if __name__ == "__main__":
+
     main()
