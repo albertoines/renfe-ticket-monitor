@@ -39,4 +39,4 @@ jobs:
           EMAIL_DESTINATARIO: ${{ secrets.EMAIL_DESTINATARIO }}
         run: |
           # El script ya está configurado para ejecutarse en modo headless
-          python renfe_scraper.py
+          python -u renfe_scraper.py
