@@ -1,6 +1,6 @@
 # 🤖 Renfe Ticket Monitor with Python and Selenium
 
-![GitHub Actions Workflow Status]([![Renfe Ticket Monitor](https://github.com/albertoines/renfe-ticket-monitor/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/albertoines/renfe-ticket-monitor/actions/workflows/main.yml))
+[![Renfe Ticket Monitor](https://github.com/albertoines/renfe-ticket-monitor/actions/workflows/main.yml/badge.svg)](https://github.com/albertoines/renfe-ticket-monitor/actions/workflows/main.yml)
 ![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python)
 
 This project is an advanced web scraping script that automatically monitors Renfe.com for available train tickets. When a specific train, previously marked as "Full", has seats available, the script sends an email notification.
