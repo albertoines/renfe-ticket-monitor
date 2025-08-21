@@ -11,8 +11,6 @@ The system is designed to run autonomously on a schedule in the cloud using **Gi
 
 ### 🎥 Live Demo (Local Execution)
 
-*(This is the most important part of your portfolio. Record a GIF of the script running locally and replace the placeholder below. It's a powerful way to show your work in action!)*
-
 ![GIF demonstration of the script in action](https://raw.githubusercontent.com/albertoines/renfe-ticket-monitor/refs/heads/main/demo/Renfe_ticket_monitor_demo.gif)
 
 ---
