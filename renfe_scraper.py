@@ -7,7 +7,7 @@ la página de resultados completamente reescrita para coincidir con la
 estructura HTML real, garantizando una detección de disponibilidad precisa.
 
 Autor: Alberto Ines
-Fecha: [Fecha Actual]
+Fecha: 21/08/2025
 """
 
 import os
@@ -35,12 +35,12 @@ from webdriver_manager.chrome import ChromeDriverManager
 # ==============================================================================
 
 # -- Datos del Viaje --
-ORIGEN = "Linares-Baeza"
+ORIGEN = "Barcelona"
 DESTINO = "Madrid"
 # Formato: "DD/MM/AAAA"
-FECHA_IDA = "17/08/2025"
+FECHA_IDA = "24/10/2025"
 # Formato: "HH:MM"
-HORA_SALIDA_TREN = "09:13"
+HORA_SALIDA_TREN = "07:27"
 
 # -- Datos del Email de Notificación --
 EMAIL_REMITENTE = os.environ.get("EMAIL_REMITENTE")
@@ -270,5 +270,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
