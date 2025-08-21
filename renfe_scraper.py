@@ -38,9 +38,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 ORIGIN_CITY = "Barcelona"
 DESTINATION_CITY = "Madrid"
 # Format: "DD/MM/YYYY"
-DEPARTURE_DATE = "24/10/2025"
+DEPARTURE_DATE = "24/08/2025"
 # Format: "HH:MM"
-TARGET_DEPARTURE_TIME = "07:27"
+TARGET_DEPARTURE_TIME = "08:00"
 
 # -- Email Notification Details --
 # Securely read from GitHub Secrets or environment variables
@@ -269,3 +269,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
